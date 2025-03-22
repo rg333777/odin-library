@@ -6,8 +6,9 @@ function Book(name, author, pages, status) {
     this.author = author;
     this.pages = pages;
     this.status = status;
+    this.id = crypto.randomUUID()
     this.info = () => {
-        return this.name + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.status
+        return this.name + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.status + ', ' + this.id
     }
 
 }
