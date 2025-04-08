@@ -24,4 +24,19 @@ function addBookToLibrary(book) {
 addBookToLibrary(theHobbit)
 addBookToLibrary(alphabet)
 
+function displayLibrary() {
+    myLibrary.forEach(book => {
+        console.log(book.info())
+    })
+}
+
+const newBook = document.querySelector('.new-book')
+newBook.addEventListener('click', () => {
+    let newBookForm = document.querySelector('.new-book-form')
+    newBookForm.style.display = 'flex'
+})
+
+
 console.log(myLibrary)
+
+displayLibrary()
