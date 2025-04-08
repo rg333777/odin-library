@@ -27,3 +27,7 @@ form {
     text-align: center;
     border: solid thin black;
 }
+
+input {
+    height: 25px;
+}

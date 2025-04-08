@@ -1,42 +1,42 @@
-const myLibrary = []
+let myLibrary = []
 
 
-function Book(name, author, pages, status) {
-    this.name = name;
+function Book(title, author, pages, status) {
+    this.title = title;
     this.author = author;
     this.pages = pages;
     this.status = status;
     this.id = crypto.randomUUID()
-    this.info = () => {
-        return this.name + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.status + ', ' + this.id
-    }
-
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'unread')
-const alphabet = new Book ('alphabet', 'unknown', 26, 'unread')
 
-
-function addBookToLibrary(book) {
-    myLibrary.push(book)    
+function addBookToLibrary() {
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;
+    let status = document.querySelector('#status').checked;
+    let newBook = new Book(title, author, pages, status);
+    myLibrary.push(newBook);   
 }
 
-addBookToLibrary(theHobbit)
-addBookToLibrary(alphabet)
 
 function displayLibrary() {
+    let library = document.querySelector('.library')
     myLibrary.forEach(book => {
-        console.log(book.info())
+        document.createElement('div')
     })
 }
 
-const newBook = document.querySelector('.new-book')
-newBook.addEventListener('click', () => {
+const newBookBtn = document.querySelector('.new-book')
+newBookBtn.addEventListener('click', () => {
     let newBookForm = document.querySelector('.new-book-form')
     newBookForm.style.display = 'flex'
 })
 
+document.querySelector('.new-book-form').addEventListener('submit', () => {
+    event.preventDefault();
+    addBookToLibrary();
+    console.log(myLibrary)
+})
 
 console.log(myLibrary)
-
-displayLibrary()
