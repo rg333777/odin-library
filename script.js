@@ -22,8 +22,37 @@ function addBookToLibrary() {
 
 function displayLibrary() {
     let library = document.querySelector('.library')
-    myLibrary.forEach(book => {
-        document.createElement('div')
+    library.textContent = ''
+    myLibrary.forEach(function(book,index) {
+        let bookContainer = document.createElement('div');
+        bookContainer.setAttribute('class', 'book-container');
+
+        let titleContainer = document.createElement('div');
+        titleContainer.setAttribute('class', 'title-container');
+        titleContainer.textContent = book.title;
+        bookContainer.appendChild(titleContainer);
+
+        let authorContainer = document.createElement('div')
+        authorContainer.setAttribute('class', 'author-container');
+        authorContainer.textContent = book.author;
+        bookContainer.appendChild(authorContainer)
+
+        let pagesContainer = document.createElement('div')
+        pagesContainer.setAttribute('class', 'pages-container');
+        pagesContainer.textContent = book.pages;
+        bookContainer.appendChild(pagesContainer)
+
+        let readContainer = document.createElement('div')
+        readContainer.setAttribute('class', 'read-container');
+        if (book.status == true) {
+            readContainer.textContent = 'Read'
+        } else {
+            readContainer.textContent = 'Unread'
+        }
+        bookContainer.appendChild(readContainer)
+
+        library.appendChild(bookContainer);
+        index++
     })
 }
 
@@ -36,7 +65,6 @@ newBookBtn.addEventListener('click', () => {
 document.querySelector('.new-book-form').addEventListener('submit', () => {
     event.preventDefault();
     addBookToLibrary();
+    displayLibrary()
     console.log(myLibrary)
 })
-
-console.log(myLibrary)

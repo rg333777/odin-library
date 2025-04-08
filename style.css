@@ -31,3 +31,24 @@ form {
 input {
     height: 25px;
 }
+
+.library {
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.book-container {
+    margin: 0 275px 0 275px;
+    padding: 20px;
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
